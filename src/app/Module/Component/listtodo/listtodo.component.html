@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.id }}</td>
+          <td>{{ task.task }}</td>
+          <td>
+            <ng-container *ngIf="!task.isCompleted"><button class="btn btn-outline-primary" (click)="markDone(task)"> Mark Complete</button></ng-container>
+            <ng-container ><button class="btn btn-primary" (click)="EditTask(task)" [disabled]="task.isCompleted"> Edit</button></ng-container>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
